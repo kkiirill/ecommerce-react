@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useWindowSize } from "../../../hooks/UseWindowSize";
+import { useWindowSize } from "../../../hooks/useWindowSize";
 import Confetti from "react-confetti";
-import { Data } from "../../../types";
 
 export function MyModal() {
   const state = useSelector((state: any) => state.handleCart);
-  const clearState: any = [...state].splice(0, state.length);
   const [showModal, setShowModal] = useState(false);
   const { width, height } = useWindowSize();
 
   const closeModal = () => {
     setShowModal(false);
-    clearState()
+    window.localStorage.clear();
   };
   return (
     <>
@@ -45,14 +43,14 @@ export function MyModal() {
                   </p>
                 </div>
                 <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
-                  <Link
+                  <a
                     className="text-blue-500 background-transparent font-bold uppercase px-6 py-2 text-xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:scale-105"
                     type="button"
                     onClick={closeModal}
-                    to={"/"}
+                    href='/'
                   >
                     Go to shoopppinggg
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

@@ -7,7 +7,6 @@ export const handleCart = (
   action: { payload: any; type: any }
 ) => {
   const product = action.payload;
-
   switch (action.type) {
     case "ADDCART":
       const productExist = state.find((item) => item.id === product.id);

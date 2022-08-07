@@ -5,11 +5,12 @@ import { Data } from "../../../types";
 import Navbar from "../Navbar/Navbar";
 import Product from "./Product";
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 
 export default function Products() {
   const [products, setProducts] = useState<Data[]>([]);
   const [productsFilter, setProductsFilter] = useState<Data[]>([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useLocalStorage('search',"");
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
