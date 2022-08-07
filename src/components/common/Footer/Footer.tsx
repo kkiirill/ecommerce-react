@@ -77,7 +77,7 @@ export const Footer = () => {
           </svg>
         </div>
       </div>
-      <div className="flex items-center justify-center my-6">
+      <div className="flex items-center justify-center py-6">
         <p className="text-xl leading-4 text-gray-800">©Polozenko Kirill</p>
       </div>
     </div>

@@ -1,11 +1,8 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import Confetti from "react-confetti";
 
 export function MyModal() {
-  const state = useSelector((state: any) => state.handleCart);
   const [showModal, setShowModal] = useState(false);
   const { width, height } = useWindowSize();
 
