@@ -1,0 +1,18 @@
+.cart-counter {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 70%;
+  left: 70%;
+  max-width: 30px;
+  max-height: 20px;
+  text-align: center;
+  border-radius: 100%;
+  border: 1px solid rgb(132, 132, 254);
+  background-color: rgb(72, 151, 226);
+  font-size: 12px;
+  color: white;
+  padding: 4px;
+  z-index: 1;
+}
