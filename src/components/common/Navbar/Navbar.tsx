@@ -37,7 +37,7 @@ function Navbar({
               <ul className="flex items-center space-x-6">
                 <li>
                   <button
-                    className="dark:text-white dark:hover:text-gray-300 text-base text-right text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
+                    className="dark:text-white dark:hover:text-gray-300 text-base text-right text-gray-800 focus:outline-none hover:underline"
                     onClick={() => setProductsFilter(products)}
                   >
                     {" "}
@@ -46,7 +46,7 @@ function Navbar({
                 </li>
                 <li>
                   <button
-                    className="dark:text-white dark:hover:text-gray-300 text-base text-right text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
+                    className="dark:text-white dark:hover:text-gray-300 text-base text-right text-gray-800 focus:outline-none hover:underline outline-none"
                     onClick={() => filterSection(sections[0])}
                   >
                     {" "}
@@ -54,21 +54,21 @@ function Navbar({
                   </button>
                 </li>
                 <li>
-                  <button className="dark:text-white dark:hover:text-gray-300 text-base text-right text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
+                  <button className="dark:text-white dark:hover:text-gray-300 text-base text-right text-gray-800 focus:ring-gray-800 hover:underline"
                   onClick={() => filterSection(sections[1])}>
                     {" "}
                     Women's Clothing{" "}
                   </button>
                 </li>
                 <li>
-                  <button className="dark:text-white dark:hover:text-gray-300 text-base text-right text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
+                  <button className="dark:text-white dark:hover:text-gray-300 text-base text-right text-gray-800 focus:outline-none hover:underline"
                   onClick={() => filterSection(sections[2])}>
                     {" "}
                     Jewelery{" "}
                   </button>
                 </li>
                 <li>
-                  <button className="dark:text-white dark:hover:text-gray-300 text-base text-right text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
+                  <button className="dark:text-white dark:hover:text-gray-300 text-base text-right text-gray-800 focus:outline-none hover:underline"
                   onClick={() => filterSection(sections[3])}>
                     {" "}
                     Electronic{" "}
