@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-[DEMO]["homepage": "https://kkiirill.github.io/ecommerse-react"]
+[DEMO]["homepage": "https://kkiirill.github.io/ecommerсe-react"]
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
