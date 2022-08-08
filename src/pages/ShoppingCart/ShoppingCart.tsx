@@ -24,7 +24,7 @@ export function ShoppingCart() {
 
   const shopingCartIsEmpty = () => {
     return (
-      <div className="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8 bg-white">
+      <div className="max-w-2xl mx-auto mt-4 pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8 bg-white">
         <div className="flex text-2xl items-center justify-center">
           Ooopss... your cart is empty! Please choose any product.
         </div>

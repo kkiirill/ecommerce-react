@@ -19,24 +19,19 @@ export function Login({ addUser }: Props) {
   } = useForm<FormData>();
 
   const onSubmit = handleSubmit((data) => {
-    if (data) {
-      addUser(data)
+     if (data) {
+      addUser(data);
     }
-    console.log(data);
   });
 
   const google = () => {
     window.open("http://localhost:5000/auth/google", "_self");
   };
 
-  const facebook = () => {
-    window.open("http://localhost:5000/auth/facebook", "_self");
-  };
-
   return (
     <div className="login">
       <h1 className="loginTitle">Choose a Login Method</h1>
-      <div className="wrapper">
+      <div className="wrapper bg-blue-300 opacity-85">
         <div className="left">
           <div className="loginButton google" onClick={google}>
             <img
@@ -46,20 +41,12 @@ export function Login({ addUser }: Props) {
             />
             Google
           </div>
-          <div className="loginButton facebook" onClick={facebook}>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/747/747543.png"
-              alt=""
-              className="icon"
-            />
-            Facebook
-          </div>
         </div>
         <div className="center">
           <div className="line" />
           <div className="or">OR</div>
         </div>
-        <form className="right" onSubmit={onSubmit}>
+        <form className="right" onClick={onSubmit}>
           <Controller
             control={control}
             name="login"
@@ -94,7 +81,7 @@ export function Login({ addUser }: Props) {
           <span className="peer-invalid:visible text-red-700 font-light">
             {errors.password?.message}
           </span>
-          <button className="submit" type="submit">
+          <button className="submit" type="button">
             Login
           </button>
         </form>

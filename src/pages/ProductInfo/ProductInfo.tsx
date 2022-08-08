@@ -3,9 +3,10 @@ import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { BASE_URL } from "../../api/api";
-import { diffToast } from "../../notification/notification";
-import { addCart } from "../../store/actions";
+import { diffToast, wishListToast } from "../../notification/notification";
+import { addCart, addWishlist } from "../../store/actions";
 import { Data } from "../../types";
+import "./ProductInfo.css";
 import "react-toastify/dist/ReactToastify.css";
 
 export function ProductInfo() {
@@ -37,6 +38,11 @@ export function ProductInfo() {
     dispatch(addCart(product as Data));
     diffToast();
   };
+
+  const addProductToWishlist = () => {
+    dispatch(addWishlist(product as Data));
+    wishListToast();
+  };
   return (
     <>
       <div className="flex justify-center items-center scroll-smooth pt-12">
@@ -63,9 +69,26 @@ export function ProductInfo() {
                         alt="product"
                       />
                       <img
-                        className=" hidden md:block lg:hidden w-full h-full object-center object-cover"
+                        className="hidden md:block lg:hidden w-full h-full object-center object-cover"
                         src={product?.image}
                         alt="product"
+                      />
+                    </div>
+                    <div
+                      className={
+                        "flex flex-shrink-0 transform " +
+                        (slide ? "translate-x-full" : "translate-x-0")
+                      }
+                    >
+                      <img
+                        className=" lg:block hidden w-full h-full object-center object-cover"
+                        src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1488039020/yydk9moslaswpur6mrun.png"
+                        alt="A girl posing Back"
+                      />
+                      <img
+                        className=" hidden md:block lg:hidden w-full h-full object-center object-cover"
+                        src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1488039020/yydk9moslaswpur6mrun.png"
+                        alt="A girl posing Back"
                       />
                     </div>
                   </div>
@@ -165,7 +188,10 @@ export function ProductInfo() {
                 >
                   Add to Cart
                 </button>
-                <button className="border border-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 md:w-96 w-full hover:bg-gray-300 text-base font-medium leading-4 text-gray-800 py-4 bg-white">
+                <button
+                  className="border border-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 md:w-96 w-full hover:bg-gray-300 text-base font-medium leading-4 text-gray-800 py-4 bg-white"
+                  onClick={addProductToWishlist}
+                >
                   Add to Wishlist
                 </button>
               </div>
@@ -192,26 +218,6 @@ export function ProductInfo() {
         </div>
         <ToastContainer />
       </div>
-      <style>
-        {` 
-        .slider {
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slide-ana {
-            height: 539px;
-        }   
-
-        .slide-ana > div {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transition: all 1s;
-        }
-    `}
-      </style>
     </>
   );
 }

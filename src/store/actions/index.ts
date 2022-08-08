@@ -20,3 +20,17 @@ export const removeProduct = (product: any) => {
     payload: product
   }
 }
+
+export const addWishlist = (product: Data) => {
+  return {
+    type: "ADDWISHLIST",
+    payload: product
+  }
+}
+
+export const removeWishlist = (product: any) => {
+  return {
+    type: "REMOVEWISHLIST",
+    payload: product
+  }
+}

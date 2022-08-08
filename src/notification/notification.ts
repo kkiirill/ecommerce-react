@@ -4,3 +4,9 @@ export const diffToast = () => {
       position: "top-right",
     });
   };
+
+  export const wishListToast = () => {
+    toast("🦄 Great, your product has been added to the wishlist!", {
+      position: "top-right",
+    });
+  };

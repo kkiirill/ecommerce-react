@@ -1,11 +1,9 @@
 import { Data } from "../../../types";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addCart } from "../../../store/actions";
-import { diffToast } from "../../../notification/notification";
+import { addCart, addWishlist } from "../../../store/actions";
+import { diffToast, wishListToast } from "../../../notification/notification";
 
-
-  
 interface Props {
   product: Data;
 }
@@ -16,13 +14,21 @@ export default function Product({ product }: Props) {
     diffToast();
   };
 
+  const addProductToWishlist = (product: Data) => {
+    dispatch(addWishlist(product));
+    wishListToast();
+  };
+
   return (
     <div className="w-64 bg-slate-50 bg-opacity-30 shadow-lg rounded-xl p-6 hover:shadow-2xl hover:scale-105 transition">
       <div className="flex flex-col ">
         <div className="">
           <div className="relative h-62 w-full mb-3">
             <div className="absolute flex flex-col top-0 right-0 p-2">
-              <button className="transition ease-in duration-300 bg-blue-200  hover:text-purple-800 shadow hover:shadow-md hover:scale-105 text-gray-500 rounded-full w-8 h-8 text-center p-1">
+              <button
+                onClick={() => addProductToWishlist(product)}
+                className="transition ease-in duration-300 bg-blue-200  hover:text-purple-800 shadow hover:shadow-md hover:scale-105 text-gray-500 rounded-full w-8 h-8 text-center p-1"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"

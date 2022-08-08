@@ -9,6 +9,7 @@ import { Login } from "./pages/Login/Login";
 import { useEffect } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { newTestUser, userTest } from "./data/user";
+import { Wishlist } from "./pages/Wishlist/Wishlist";
 
 const requestHeaders: HeadersInit = new Headers();
 requestHeaders.set('Content-Type', 'application/json');
@@ -53,6 +54,7 @@ function App() {
         </Route>
         <Route path="/cart" element={<ShoppingCart />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login addUser={addTestUser}/>} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
       <Footer />
     </div>

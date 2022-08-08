@@ -1,5 +1,6 @@
 import { rootReducers } from "./reducer/index";
 import { createStore } from "redux";
+
 function saveToLocalStorage(state: any) {
   try {
     const serialisedState = JSON.stringify(state);
