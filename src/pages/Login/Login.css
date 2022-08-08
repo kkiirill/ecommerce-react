@@ -79,7 +79,7 @@
   margin-right: 10px;
 }
 
-input {
+.input-login {
   width: 200px;
   padding: 15px 20px;
   margin-bottom: 20px;
@@ -107,17 +107,6 @@ input {
 }
 
 @media screen and (max-width: 992px) {
-  .card {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-
-  .wrapper {
-    width: 65%;
-    height: 90%;
-    flex-direction: column;
-  }
-
   .loginTitle {
     display: none;
   }

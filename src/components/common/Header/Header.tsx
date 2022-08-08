@@ -9,14 +9,10 @@ interface Props {
 
 export function Header({ user }: Props) {
   const state = useSelector((state: any) => state.handleCart);
-  const [menuUser, setMenuUser] = useState<boolean>(false);
-
-  const handleMenuUser = () => {
-    !menuUser ? setMenuUser(true) : setMenuUser(false);
-  };
 
   const logout = () => {
     window.open("http://localhost:5000/auth/logout", "_self");
+    localStorage.removeItem("user");
   };
 
   return (
@@ -38,11 +34,22 @@ export function Header({ user }: Props) {
               <div className="pr-8">
                 <ul className="list flex justify-between items-center">
                   <li className="listItem">
-                    <img alt="" className="avatar" src={user?.photos[0].value} />
+                    <img
+                      alt=""
+                      className="w-10 h-10 mr-2 rounded-full"
+                      src={user?.photos[0].value}
+                    />
                   </li>
-                  <li className="listItem pr-7">{user?.displayName}</li>
+                  <li className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-purple-200 to-blue-600 pr-7 animate-pulse">
+                    {user?.displayName}
+                  </li>
                   <li className="listItem cursor-pointer" onClick={logout}>
-                    Logout
+                  <img
+                      alt=""
+                      className="w-10 h-10 mr-2 rounded"
+                      src='https://cdn-icons-png.flaticon.com/512/1053/1053210.png'
+                      title="logout"
+                    />
                   </li>
                 </ul>
               </div>

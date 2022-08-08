@@ -6,13 +6,16 @@ import { ShoppingCart } from "./pages/ShoppingCart/ShoppingCart";
 import { ProductInfo } from "./pages/ProductInfo/ProductInfo";
 import Home from "./pages/Home/Home";
 import { Login } from "./pages/Login/Login";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { newTestUser, userTest } from "./data/user";
 
 const requestHeaders: HeadersInit = new Headers();
 requestHeaders.set('Content-Type', 'application/json');
 
 function App() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useLocalStorage<any>('user', null);
+  
   useEffect(() => {
     const getUser = () => {
       fetch("http://localhost:5000/auth/login/success", {
@@ -33,6 +36,12 @@ function App() {
     };
     getUser();
   }, []);
+  
+  const addTestUser = (data: any) => {
+    if (JSON.stringify(data) === JSON.stringify(userTest)) {
+      setUser(newTestUser)
+    }
+  }
 
   return (
     <div className="app">
@@ -43,7 +52,7 @@ function App() {
           <Route path=":productID" element={<ProductInfo />} />
         </Route>
         <Route path="/cart" element={<ShoppingCart />} />
-        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login addUser={addTestUser}/>} />
       </Routes>
       <Footer />
     </div>
