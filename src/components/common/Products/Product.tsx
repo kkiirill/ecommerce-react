@@ -84,14 +84,14 @@ export default function Product({ product }: Props) {
             </div>
             <div className="flex space-x-2 text-sm font-medium justify-start">
               <button
-                className="transition ease-in duration-300 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-7 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600 "
+                className="transition ease-in duration-300 inline-flex items-center text-xl font-medium mb-2 md:mb-0 bg-purple-500 px-7 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600 "
                 onClick={() => addProduct(product)}
               >
                 Add Cart
               </button>
               <Link
                 to={`/product/${product.id}`}
-                className="transition ease-in duration-300 bg-gray-700 hover:bg-gray-800 border hover:border-gray-500 border-gray-700 hover:text-white  hover:shadow-lg text-gray-400 rounded-full w-9 h-9 text-center p-2"
+                className="transition ease-in duration-300 bg-gray-700 hover:bg-gray-800 border hover:border-gray-500 border-gray-700 hover:text-white  hover:shadow-lg text-gray-400 rounded-full w-12 h-12 text-center p-2"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

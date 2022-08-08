@@ -16,7 +16,7 @@ export function Header({ user }: Props) {
   };
 
   return (
-    <header className="bg-gray-200 opacity-95 h-full sticky top-0 z-50">
+    <header className="bg-gray-200 opacity-95 h-full sticky top-0 z-50 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-3">
         <div className="relative flex items-center justify-between h-16">
           <div className="flex-shrink-0">
@@ -77,7 +77,7 @@ export function Header({ user }: Props) {
               />
               <div className="wishlist-counter">{stateWishlist.length}</div>
             </Link>
-            <div className="pl-3 hover:animate-bounce">
+            <div className={"pl-3 hover:animate-bounce " + (state.length  && "animate-bounce")}>
               <Link to="/cart" className="relative">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/5998/5998083.png"

@@ -4,13 +4,14 @@ import { getProducts } from "../../../api/api";
 import { Data } from "../../../types";
 import Navbar from "../Navbar/Navbar";
 import Product from "./Product";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import "./Products.css";
 
 export default function Products() {
   const [products, setProducts] = useState<Data[]>([]);
   const [productsFilter, setProductsFilter] = useState<Data[]>([]);
-  const [search, setSearch] = useLocalStorage('search',"");
+  const [search, setSearch] = useLocalStorage("search", "");
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ export default function Products() {
 
     fetchData();
   }, []);
-  
+
   const searchByProducts = [...productsFilter].filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
   });
@@ -50,39 +51,39 @@ export default function Products() {
           search={search}
           setSearch={setSearch}
         />
-        <div className="flex justify-center">
-            {searchByProducts.length ? (
-             <div className="container flex flex-wrap gap-16">
+        <div className="flex align-center justify-center">
+          {searchByProducts.length ? (
+            <div className="container flex-wrap gap-16 products">
               {searchByProducts?.map((product) => (
                 <Product key={product.id} product={product} />
               ))}
-              </div>
-            ) : (
-              <div
-                className="flex justify-center items-center p-4 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300"
-                role="alert"
+            </div>
+          ) : (
+            <div
+              className="flex justify-center items-center p-4 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300"
+              role="alert"
+            >
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 inline w-5 h-5 mr-3"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  aria-hidden="true"
-                  className="flex-shrink-0 inline w-5 h-5 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span className="sr-only">Info</span>
-                <div className="font-medium">
-                  No results for {search}. Try checking your spelling or use
-                  more general terms
-                </div>
+                <path
+                  fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="sr-only">Info</span>
+              <div className="font-medium">
+                No results for {search}. Try checking your spelling or use more
+                general terms
               </div>
-            )}
-          </div>
+            </div>
+          )}
+        </div>
         <ToastContainer />
       </main>
     );

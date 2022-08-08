@@ -5,7 +5,7 @@ interface Props {
 
 export function Field({ search, setSearch }: Props) {
   return (
-    <form className="flex items-center">
+    <form className="flex items-center mb-7">
       <label htmlFor="simple-search" className="sr-only">
         Search...
       </label>

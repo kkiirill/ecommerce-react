@@ -47,9 +47,8 @@ export function ProductInfo() {
     <>
       <div className="flex justify-center items-center scroll-smooth pt-12">
         <div
-          id="menu"
           className={
-            "md:px-6 px-4 py-12 w-full h-full flex justify-center  bg-gray-200 bg-opacity-40"
+            "md:px-6 px-4 py-12 w-full h-full flex justify-center bg-gray-200 bg-opacity-40"
           }
         >
           <div className="2xl:container 2xl:mx-auto relative  flex justify-start w-96 md:w-10/12 xl:w-8/12 2xl:w-7/12 item-start flex-col lg:flex-row   lg:space-x-8 py-12 md:py-16 lg:py-12 px-4 md:px-8 lg:px-24 bg-gray-100 bg-opacity-90">
@@ -64,12 +63,12 @@ export function ProductInfo() {
                       }
                     >
                       <img
-                        className=" lg:block hidden w-full h-full object-center object-cover"
+                        className=" lg:block md:hidden w-full h-full object-center object-cover"
                         src={product?.image}
                         alt="product"
                       />
                       <img
-                        className="hidden md:block lg:hidden w-full h-full object-center object-cover"
+                        className="md:block lg:hidden w-full h-full object-center object-cover"
                         src={product?.image}
                         alt="product"
                       />
@@ -81,14 +80,14 @@ export function ProductInfo() {
                       }
                     >
                       <img
-                        className=" lg:block hidden w-full h-full object-center object-cover"
+                        className=" lg:block md:hidden  w-full h-full object-center object-cover"
                         src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1488039020/yydk9moslaswpur6mrun.png"
-                        alt="A girl posing Back"
+                        alt="product"
                       />
                       <img
-                        className=" hidden md:block lg:hidden w-full h-full object-center object-cover"
+                        className="hidden md:block lg:hidden w-full h-full object-center object-cover"
                         src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1488039020/yydk9moslaswpur6mrun.png"
-                        alt="A girl posing Back"
+                        alt="product"
                       />
                     </div>
                   </div>

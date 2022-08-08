@@ -3,11 +3,9 @@ import { Carousel } from "../../components/UI/Carousel/Carousel";
 
 export default function Home() {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto mt-12 px-2 sm:px-6 lg:px-8 m-h-[800px]">
       <Carousel />
-      <div className="max-w-7xl mx-auto mt-12 px-2 sm:px-6 lg:px-8 mt-2 m-h-[800px]">
-        <Products />
-      </div>
+      <Products />
     </div>
   );
 }
