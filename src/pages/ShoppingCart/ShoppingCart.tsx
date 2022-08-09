@@ -43,11 +43,11 @@ export function ShoppingCart() {
   const orderSubtotal = state
     .map((item: any) => parseFloat(item.total))
     .reduce((sum, item) => sum + item, 0)
-    .toFixed(2);
+ 
 
-  const orderTax = (+orderSubtotal * 0.1).toFixed(2);
-  const delivery = 5.00.toFixed(2);
-  const orderTotal = (+orderSubtotal + +orderTax + +delivery).toFixed(2);
+  const orderTax = (orderSubtotal * 0.1);
+  const delivery = 5.00;
+  const orderTotal = (orderSubtotal + orderTax + delivery);
 
   return (
     <>
@@ -152,7 +152,7 @@ export function ShoppingCart() {
                   <div className="flex items-center justify-between">
                     <dt className="text-sm text-gray-600">Subtotal</dt>
                     <div className="text-sm font-medium text-gray-900">
-                      ${orderSubtotal}
+                      ${orderSubtotal.toFixed(2)}
                     </div>
                   </div>
                   <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
@@ -171,7 +171,7 @@ export function ShoppingCart() {
                         />
                       </a>
                     </dt>
-                    <dd className="text-sm font-medium text-gray-900">${delivery}</dd>
+                    <dd className="text-sm font-medium text-gray-900">${delivery.toFixed(2)}</dd>
                   </div>
                   <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                     <div className="flex text-sm text-gray-600">
@@ -189,14 +189,14 @@ export function ShoppingCart() {
                         />
                       </a>
                     </div>
-                    <div className="text-sm font-medium text-gray-900">${orderTax}</div>
+                    <div className="text-sm font-medium text-gray-900">${orderTax.toFixed(2)}</div>
                   </div>
                   <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                     <dt className="text-base font-medium text-gray-900">
                       Order total
                     </dt>
                     <div className="text-base font-medium text-gray-900">
-                      ${orderTotal}
+                      ${orderTotal.toFixed(2)}
                     </div>
                   </div>
                 </dl>

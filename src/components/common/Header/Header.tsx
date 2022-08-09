@@ -12,7 +12,7 @@ export function Header({ user }: Props) {
 
   const logout = () => {
     localStorage.removeItem("user");
-    window.open("https://kkiirill.github.io/ecommerce-react/#/", "_self");
+    window.open("https://kkiirill.github.io/ecommerce-react", "_self");
   };
 
   return (
