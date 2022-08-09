@@ -1,6 +1,13 @@
-# Getting Started with Create React App
-[DEMO]["homepage": "https://kkiirill.github.io/ecommerсe-react"]
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ecommerce-react 
+
+
+
+[DEMO](https://kkiirill.github.io/ecommerce-react/)
+This Project made with React/Redux, React Router, Tailwind
+
+
+
+
 
 ## Available Scripts
 
