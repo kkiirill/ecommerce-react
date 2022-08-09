@@ -17,26 +17,12 @@ requestHeaders.set("Content-Type", "application/json");
 
 function App() {
   const [user, setUser] = useLocalStorage<any>("user", null);
-  useEffect(() => {
-    const getUser = () => {
-      fetch("http://localhost:5000/auth/login/success", {
-        method: "GET",
-        credentials: "include",
-        headers: requestHeaders,
-      })
-        .then((response) => {
-          if (response.status === 200) return response.json();
-          throw new Error("authentication has been failed!");
-        })
-        .then((resObject) => {
-          setUser(resObject.user);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    getUser();
-  }, []);
+
+  const addFacebookUser = (user: any) => {
+    if (user) {
+      setUser(user);
+    }
+  };
 
   const addTestUser = (data: any) => {
     if (JSON.stringify(data) === JSON.stringify(userTest)) {
@@ -46,24 +32,28 @@ function App() {
 
   return (
     <div className="app">
-        <Header user={user} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/" element={<ProductInfo />}>
-            <Route path=":productID" element={<ProductInfo />} />
-          </Route>
-          <Route path="/cart" element={<ShoppingCart />} />
-          <Route
-            path="/login"
-            element={
-              user ? <Navigate to="/" /> : <Login addUser={addTestUser} />
-            }
-          />
-          <Route path="/wishlist" element={<Wishlist />} />
-        </Routes>
-        <ScrollToTop />
-        <Footer />
-      </div>
+      <Header user={user} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/" element={<ProductInfo />}>
+          <Route path=":productID" element={<ProductInfo />} />
+        </Route>
+        <Route path="/cart" element={<ShoppingCart />} />
+        <Route
+          path="/login"
+          element={
+            user ? (
+              <Navigate to="/" />
+            ) : (
+              <Login addUser={addTestUser} addFacebookUser={addFacebookUser} />
+            )
+          }
+        />
+        <Route path="/wishlist" element={<Wishlist />} />
+      </Routes>
+      <ScrollToTop />
+      <Footer />
+    </div>
   );
 }
 

@@ -12,7 +12,7 @@ export function Header({ user }: Props) {
 
   const logout = () => {
     localStorage.removeItem("user");
-    window.open("http://localhost:5000/auth/logout", "_self");
+    window.open("https://kkiirill.github.io/ecommerce-react/#/", "_self");
   };
 
   return (
@@ -37,11 +37,11 @@ export function Header({ user }: Props) {
                     <img
                       alt=""
                       className="w-10 h-10 mr-2 rounded-full"
-                      src={user?.photos[0].value}
+                      src={user?.photo}
                     />
                   </li>
                   <li className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-purple-700 to-blue-600 pr-7 animate-pulse">
-                    {user?.displayName}
+                    {user?.name}
                   </li>
                   <li className="listItem cursor-pointer" onClick={logout}>
                     <img

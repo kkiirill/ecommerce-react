@@ -67,8 +67,8 @@
   cursor: pointer;
 }
 
-.google {
-  background-color: #df4930;
+.facebook {
+  background-color: #6a43d4;
 }
 
 .icon {
@@ -95,7 +95,7 @@
 
 .loginTitle {
   position: absolute;
-  top: 200px;
+  top: 190px;
   color: rgb(126, 107, 107);
   font-size: 24px;
   z-index: 10;

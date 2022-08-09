@@ -1,9 +1,11 @@
 import { useForm, Controller } from "react-hook-form";
+import { Facebook } from "../../components/Facebook/Facebook";
 import "./Login.css";
 import { loginValidation, passwordValidation } from "./validationLogin";
 
 interface Props {
   addUser: (x: any) => void;
+  addFacebookUser: (x: any) => void;
 }
 
 type FormData = {
@@ -11,7 +13,7 @@ type FormData = {
   password: string;
 };
 
-export function Login({ addUser }: Props) {
+export function Login({ addUser, addFacebookUser }: Props) {
   const {
     handleSubmit,
     control,
@@ -19,27 +21,19 @@ export function Login({ addUser }: Props) {
   } = useForm<FormData>();
 
   const onSubmit = handleSubmit((data) => {
-     if (data) {
+    if (data) {
       addUser(data);
     }
   });
 
-  const google = () => {
-    window.open("http://localhost:5000/auth/google", "_self");
-  };
 
   return (
     <div className="login">
       <h1 className="loginTitle">Choose a Login Method</h1>
       <div className="wrapper bg-blue-300 opacity-85">
         <div className="left">
-          <div className="loginButton google" onClick={google}>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/7782/7782690.png"
-              alt=""
-              className="icon"
-            />
-            Google
+          <div className="loginButton facebook">
+            <Facebook addUser={addFacebookUser}/>
           </div>
         </div>
         <div className="center">
