@@ -4,6 +4,7 @@ Ecommerce-react
 
 [DEMO](https://kkiirill.github.io/ecommerce-react/)
 This Project made with React/Redux, React Router, Tailwind
+User test for login : username: test, password: 123456
 
 
 
