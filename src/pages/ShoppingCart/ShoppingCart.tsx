@@ -43,11 +43,15 @@ export function ShoppingCart() {
   const orderSubtotal = state
     .map((item: any) => parseFloat(item.total))
     .reduce((sum, item) => sum + item, 0)
- 
 
   const orderTax = (orderSubtotal * 0.1);
-  const delivery = 5.00;
+  const delivery = 5;
   const orderTotal = (orderSubtotal + orderTax + delivery);
+  console.log(state[0]?.total)
+  console.log('orderSubtotal: ', typeof(orderSubtotal))
+  console.log('orderTax', typeof(orderTax))
+  console.log('orderTotal', typeof(orderTotal))
+  console.log('sum', state[0]?.amt * state[0]?.price)
 
   return (
     <>
@@ -113,7 +117,7 @@ export function ShoppingCart() {
                               {
                                 (product.total = (
                                   product.price * +product.amt
-                                ).toFixed(2))
+                                )).toFixed(2)
                               }
                             </p>
                           </div>
