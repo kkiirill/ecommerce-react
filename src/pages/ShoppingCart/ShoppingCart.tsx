@@ -40,18 +40,15 @@ export function ShoppingCart() {
     );
   };
 
-  const orderSubtotal = state
-    .map((item: any) => parseFloat(item.total))
-    .reduce((sum, item) => sum + item, 0)
 
-  const orderTax = (orderSubtotal * 0.1);
+  const copyState = [...state]
+    .map((item: any) => item.total = +item.price * +item.amt)
+
+  const orderSubtotal: number = copyState.reduce((sum, item) => sum + item, 0);
+
+  const orderTax: number = orderSubtotal * 0.1;
   const delivery = 5;
-  const orderTotal = (orderSubtotal + orderTax + delivery);
-  console.log(state[0]?.total)
-  console.log('orderSubtotal: ', typeof(orderSubtotal))
-  console.log('orderTax', typeof(orderTax))
-  console.log('orderTotal', typeof(orderTotal))
-  console.log('sum', state[0]?.amt * state[0]?.price)
+  const orderTotal = orderSubtotal + orderTax + delivery;
 
   return (
     <>
@@ -99,7 +96,7 @@ export function ShoppingCart() {
                               onClick={() => handleRemoveProductAmount(product)}
                               className="pr-1 "
                             >
-                              <AiFillMinusCircle  />
+                              <AiFillMinusCircle />
                             </button>
                             <button
                               type="button"
@@ -112,14 +109,7 @@ export function ShoppingCart() {
                               {product.amt} X ${product.price} =
                             </p>
 
-                            <p>
-                              $
-                              {
-                                (product.total = (
-                                  product.price * +product.amt
-                                )).toFixed(2)
-                              }
-                            </p>
+                            <p>${product.total.toFixed(2)}</p>
                           </div>
 
                           <div className="mt-4 sm:mt-0 sm:pr-9">
@@ -175,7 +165,9 @@ export function ShoppingCart() {
                         />
                       </a>
                     </dt>
-                    <dd className="text-sm font-medium text-gray-900">${delivery.toFixed(2)}</dd>
+                    <dd className="text-sm font-medium text-gray-900">
+                      ${delivery.toFixed(2)}
+                    </dd>
                   </div>
                   <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                     <div className="flex text-sm text-gray-600">
@@ -193,7 +185,9 @@ export function ShoppingCart() {
                         />
                       </a>
                     </div>
-                    <div className="text-sm font-medium text-gray-900">${orderTax.toFixed(2)}</div>
+                    <div className="text-sm font-medium text-gray-900">
+                      ${orderTax.toFixed(2)}
+                    </div>
                   </div>
                   <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                     <dt className="text-base font-medium text-gray-900">

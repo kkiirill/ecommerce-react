@@ -20,7 +20,7 @@ export const handleCart = (
           ...state,
           {
             ...product,
-            amt: 1,
+            amt: 1, 
           },
         ];
       }
