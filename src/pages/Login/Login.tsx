@@ -21,15 +21,11 @@ export const Login: React.FC<Props> = memo(({ addUser, addFacebookUser }) => {
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = useCallback(
-    () =>
-      handleSubmit((data) => {
-        if (data) {
-          addUser(data);
-        }
-      }),
-    [addUser, handleSubmit]
-  );
+  const onSubmit = handleSubmit((data) => {
+    if (data) {
+      addUser(data);
+    }
+  });
 
   return (
     <div className="login">
