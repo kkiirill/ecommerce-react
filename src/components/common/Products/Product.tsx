@@ -2,22 +2,23 @@ import { Data } from "../../../types";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addCart, addWishlist } from "../../../store/actions";
-import { diffToast, wishListToast } from "../../../notification/notification";
+import { diffToast, wishListToast } from "../../../functions/notification/notification";
+import React, { memo, useCallback } from "react";
 
 interface Props {
   product: Data;
 }
-export default function Product({ product }: Props) {
+export const Product: React.FC<Props> = memo(({ product }) => {
   const dispatch = useDispatch();
   const addProduct = (product: Data) => {
     dispatch(addCart(product));
     diffToast();
   };
 
-  const addProductToWishlist = (product: Data) => {
+  const addProductToWishlist = useCallback((product: Data) => {
     dispatch(addWishlist(product));
     wishListToast();
-  };
+  }, [dispatch]);
 
   return (
     <div className="w-64 bg-slate-50 bg-opacity-30 shadow-lg rounded-xl p-6 hover:shadow-2xl hover:scale-105 transition">
@@ -120,4 +121,4 @@ export default function Product({ product }: Props) {
       </div>
     </div>
   );
-}
+})

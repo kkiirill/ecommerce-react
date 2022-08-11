@@ -1,9 +1,9 @@
 interface Props {
   search: string;
-  setSearch: (e: any) => void;
+  setSearch: (e: string) => void;
 }
 
-export function Field({ search, setSearch }: Props) {
+export const Field: React.FC<Props> = ({ search, setSearch }) => {
   return (
     <form className="flex items-center mb-7">
       <label htmlFor="simple-search" className="sr-only">
@@ -37,4 +37,4 @@ export function Field({ search, setSearch }: Props) {
       </div>
     </form>
   );
-}
+};

@@ -1,3 +1,4 @@
+import { memo, useCallback } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Facebook } from "../../components/Facebook/Facebook";
 import "./Login.css";
@@ -13,19 +14,22 @@ type FormData = {
   password: string;
 };
 
-export function Login({ addUser, addFacebookUser }: Props) {
+export const Login: React.FC<Props> = memo(({ addUser, addFacebookUser }) => {
   const {
     handleSubmit,
     control,
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = handleSubmit((data) => {
-    if (data) {
-      addUser(data);
-    }
-  });
-
+  const onSubmit = useCallback(
+    () =>
+      handleSubmit((data) => {
+        if (data) {
+          addUser(data);
+        }
+      }),
+    [addUser, handleSubmit]
+  );
 
   return (
     <div className="login">
@@ -33,7 +37,7 @@ export function Login({ addUser, addFacebookUser }: Props) {
       <div className="wrapper bg-blue-300 opacity-85">
         <div className="left">
           <div className="loginButton facebook">
-            <Facebook addUser={addFacebookUser}/>
+            <Facebook addUser={addFacebookUser} />
           </div>
         </div>
         <div className="center">
@@ -82,4 +86,4 @@ export function Login({ addUser, addFacebookUser }: Props) {
       </div>
     </div>
   );
-}
+});

@@ -1,24 +1,27 @@
-import { useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { BASE_URL } from "../../api/api";
-import { diffToast, wishListToast } from "../../notification/notification";
+import {
+  diffToast,
+  wishListToast,
+} from "../../functions/notification/notification";
 import { addCart, addWishlist } from "../../store/actions";
 import { Data } from "../../types";
 import "./ProductInfo.css";
 import "react-toastify/dist/ReactToastify.css";
 
-export function ProductInfo() {
+export const ProductInfo: React.FC = memo(() => {
   const dispatch = useDispatch();
 
   const { productID } = useParams();
   const productURL = `${BASE_URL}/${productID}`;
   const [product, setProduct] = useState<Data | undefined>();
 
-  const [slide, setSlide] = useState(true);
+  const [slide, setSlide] = useState<boolean>(true);
 
-  const slideToggle = () => setSlide(!slide);
+  const slideToggle = useCallback(() => setSlide(!slide), [slide]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,17 +35,17 @@ export function ProductInfo() {
     };
 
     fetchData();
-  }, []);
+  }, [productURL]);
 
-  const addProduct = () => {
+  const addProduct = useCallback(() => {
     dispatch(addCart(product as Data));
     diffToast();
-  };
+  }, [dispatch, product]);
 
-  const addProductToWishlist = () => {
+  const addProductToWishlist = useCallback(() => {
     dispatch(addWishlist(product as Data));
     wishListToast();
-  };
+  }, [dispatch, product]);
   return (
     <>
       <div className="flex justify-center items-center scroll-smooth pt-12">
@@ -219,4 +222,4 @@ export function ProductInfo() {
       </div>
     </>
   );
-}
+});

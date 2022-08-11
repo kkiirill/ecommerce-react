@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./Header.css";
+import { User } from "../../../types";
+import { memo } from "react";
 
 interface Props {
-  user: any;
+  user?: User | null;
 }
 
-export function Header({ user }: Props) {
+export const Header: React.FC<Props> = memo(({ user }) => {
   const state = useSelector((state: any) => state.handleCart);
   const stateWishlist = useSelector((state: any) => state.handleWishlist);
 
@@ -77,7 +79,12 @@ export function Header({ user }: Props) {
               />
               <div className="wishlist-counter">{stateWishlist.length}</div>
             </Link>
-            <div className={"pl-3 hover:animate-bounce " + (state.length  && "animate-bounce")}>
+            <div
+              className={
+                "pl-3 hover:animate-bounce " +
+                (state.length && "animate-bounce")
+              }
+            >
               <Link to="/cart" className="relative">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/5998/5998083.png"
@@ -92,4 +99,4 @@ export function Header({ user }: Props) {
       </div>
     </header>
   );
-}
+});

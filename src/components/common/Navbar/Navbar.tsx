@@ -1,3 +1,4 @@
+import { memo, useCallback } from "react";
 import { Data } from "../../../types";
 import { Field } from "../../UI/Field";
 const sections: string[] = [
@@ -8,24 +9,24 @@ const sections: string[] = [
 ];
 interface Props {
   search: string;
-  setSearch: (e: any) => void;
+  setSearch: (e: string) => void;
   searchProducts: Data[];
   products: Data[];
   setProductsFilter: (products: Data[]) => void;
 }
 
-function Navbar({
+const Navbar: React.FC<Props> = memo(({
   search,
   setSearch,
   setProductsFilter,
   products,
-}: Props) {
-  const filterSection = (category: string) => {
+}) => {
+  const filterSection = useCallback((category: string) => {
     const sectionChanges = [...products].filter(
       (product) => product.category === category
     );
     setProductsFilter(sectionChanges);
-  };
+  },[products, setProductsFilter]);
 
   return (
     <div className="dark:bg-gray-900 mt-5">
@@ -81,6 +82,6 @@ function Navbar({
       </div>
     </div>
   );
-}
+})
 
 export default Navbar;

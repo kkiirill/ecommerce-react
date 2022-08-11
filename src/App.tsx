@@ -4,19 +4,19 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Footer } from "./components/common/Footer/Footer";
 import { ShoppingCart } from "./pages/ShoppingCart/ShoppingCart";
 import { ProductInfo } from "./pages/ProductInfo/ProductInfo";
-import Home from "./pages/Home/Home";
+import { Home } from "./pages/Home/Home";
 import { Login } from "./pages/Login/Login";
-import { useEffect } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { newTestUser, userTest } from "./data/user";
 import { Wishlist } from "./pages/Wishlist/Wishlist";
-import ScrollToTop from "./scroll/ScrollToTop";
+import { ScrollToTop } from "./functions/scroll/ScrollToTop";
+import { User } from "./types";
 
 const requestHeaders: HeadersInit = new Headers();
 requestHeaders.set("Content-Type", "application/json");
 
 function App() {
-  const [user, setUser] = useLocalStorage<any>("user", null);
+  const [user, setUser] = useLocalStorage<User | null>("user", null);
 
   const addFacebookUser = (user: any) => {
     if (user) {

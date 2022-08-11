@@ -8,7 +8,7 @@ export const resources: Resource[] = [
 
   {
     imageUrl:
-      "https://www.digitaltrends.com/wp-content/uploads/2021/07/macbook-pro-purple-lighting.jpg?p=1",
+      "https://s3.eu-west-2.amazonaws.com/luxurylondon.co.uk-storage-bucket-001/images/articles-body/12/the-best-spring-summer-2018-fashion-campaigns-prada.jpg",
   },
   {
     imageUrl:
@@ -36,6 +36,6 @@ export const resources: Resource[] = [
   },
   {
     imageUrl:
-      "https://wylsa.com/wp-content/uploads/2021/01/samsung-galaxy-s21-top.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/20b55a91628085.5e3ef69d6c72d.png",
   },
 ];

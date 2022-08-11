@@ -1,22 +1,29 @@
+import { memo, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { diffToast } from "../../notification/notification";
+import { diffToast } from "../../functions/notification/notification";
 import { addCart, removeWishlist } from "../../store/actions";
 import { Data } from "../../types";
 
-export function Wishlist() {
+export const Wishlist: React.FC = memo(() => {
   const state: Data[] = useSelector((state: any) => state.handleWishlist);
   const dispatch = useDispatch();
 
-  const handleRemove = (product: Data) => {
-    dispatch(removeWishlist(product));
-  };
+  const handleRemove = useMemo(
+    () => (product: Data) => {
+      dispatch(removeWishlist(product));
+    },
+    [dispatch]
+  );
 
-  const addProduct = (product: Data) => {
-    dispatch(addCart(product));
-    diffToast();
-  };
+  const addProduct = useMemo(
+    () => (product: Data) => {
+      dispatch(addCart(product));
+      diffToast();
+    },
+    [dispatch]
+  );
 
   const wishlistIsEmpty = () => {
     return (
@@ -136,4 +143,4 @@ export function Wishlist() {
       )}
     </>
   );
-}
+});

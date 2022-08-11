@@ -1,4 +1,5 @@
 import { QuestionMarkCircleIcon, XIcon } from "@heroicons/react/solid";
+import { memo, useMemo } from "react";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -6,21 +7,30 @@ import { MyModal } from "../../components/UI/Modal/MyModal";
 import { addCart, removeCart, removeProduct } from "../../store/actions";
 import { Data } from "../../types";
 
-export function ShoppingCart() {
+export const ShoppingCart: React.FC = memo(() => {
   const state: Data[] = useSelector((state: any) => state.handleCart);
   const dispatch = useDispatch();
 
-  const handleAddProduct = (product: Data) => {
-    dispatch(addCart(product));
-  };
+  const handleAddProduct = useMemo(
+    () => (product: Data) => {
+      dispatch(addCart(product));
+    },
+    [dispatch]
+  );
 
-  const handleRemoveProductAmount = (product: Data) => {
-    dispatch(removeCart(product));
-  };
+  const handleRemoveProductAmount = useMemo(
+    () => (product: Data) => {
+      dispatch(removeCart(product));
+    },
+    [dispatch]
+  );
 
-  const handleRemoveProduct = (product: Data) => {
-    dispatch(removeProduct(product));
-  };
+  const handleRemoveProduct = useMemo(
+    () => (product: Data) => {
+      dispatch(removeProduct(product));
+    },
+    [dispatch]
+  );
 
   const shopingCartIsEmpty = () => {
     return (
@@ -40,9 +50,9 @@ export function ShoppingCart() {
     );
   };
 
-
-  const copyState = [...state]
-    .map((item: any) => item.total = +item.price * +item.amt)
+  const copyState = [...state].map(
+    (item: any) => (item.total = +item.price * +item.amt)
+  );
 
   const orderSubtotal: number = copyState.reduce((sum, item) => sum + item, 0);
 
@@ -208,4 +218,4 @@ export function ShoppingCart() {
       )}
     </>
   );
-}
+});

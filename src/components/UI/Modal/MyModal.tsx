@@ -1,15 +1,15 @@
-import { useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import Confetti from "react-confetti";
 
-export function MyModal() {
-  const [showModal, setShowModal] = useState(false);
+export const MyModal: React.FC = memo(() => {
+  const [showModal, setShowModal] = useState<boolean>(false);
   const { width, height } = useWindowSize();
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setShowModal(false);
     window.localStorage.clear();
-  };
+  }, []);
   return (
     <>
       <button
@@ -44,7 +44,7 @@ export function MyModal() {
                     className="text-blue-500 background-transparent font-bold uppercase px-6 py-2 text-xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:scale-105"
                     type="button"
                     onClick={closeModal}
-                    href='/'
+                    href="/"
                   >
                     Go to shoopppinggg
                   </a>
@@ -58,4 +58,4 @@ export function MyModal() {
       ) : null}
     </>
   );
-}
+});

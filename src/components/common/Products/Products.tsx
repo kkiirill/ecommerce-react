@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { getProducts } from "../../../api/api";
 import { Data } from "../../../types";
 import Navbar from "../Navbar/Navbar";
-import Product from "./Product";
+import { Product } from "./Product";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import "./Products.css";
 
-export default function Products() {
+export const Products: React.FC = memo(() => {
   const [products, setProducts] = useState<Data[]>([]);
   const [productsFilter, setProductsFilter] = useState<Data[]>([]);
-  const [search, setSearch] = useLocalStorage("search", "");
+  const [search, setSearch] = useLocalStorage<string>("search", "");
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -29,9 +29,9 @@ export default function Products() {
     fetchData();
   }, []);
 
-  const searchByProducts = [...productsFilter].filter((product) => {
+  const searchByProducts = useMemo(()=>[...productsFilter].filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
-  });
+  }),[productsFilter, search]);
 
   const loader = () => {
     return (
@@ -89,4 +89,4 @@ export default function Products() {
     );
   };
   return <div>{loading ? loader() : productsContent()}</div>;
-}
+});

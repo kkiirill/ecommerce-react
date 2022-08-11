@@ -1,11 +1,11 @@
-import { useCallback } from "react";
+import { memo, useCallback } from "react";
 import FacebookLogin from "react-facebook-login";
 
 interface Props {
   addUser: (user: any) => void;
 }
 
-export const Facebook = ({ addUser}: Props) => {
+export const Facebook:React.FC<Props> = memo(({ addUser}: Props) => {
   const responseFacebook = useCallback((response: any) => {
     try {
       if (response.accessToken) {
@@ -19,7 +19,7 @@ export const Facebook = ({ addUser}: Props) => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [addUser]);
 
   return (
     <div>
@@ -34,4 +34,4 @@ export const Facebook = ({ addUser}: Props) => {
       />
     </div>
   );
-};
+});

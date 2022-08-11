@@ -1,7 +1,7 @@
 import React from "react";
 import { Highlight } from "../Highlight/Highlight";
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
   return (
     <div className="bg-gray-50 bg-opacity-10 mx-auto sm:px-6 px-4 mt-20">
       <Highlight />
@@ -78,7 +78,11 @@ export const Footer = () => {
         </div>
       </div>
       <div className="flex items-center justify-center py-6">
-        <p className="text-xl leading-4 text-gray-800">©Polozenko Kirill</p>
+        <p className="text-xl leading-4 text-gray-800">
+          <a className="list-none" href="https://github.com/kkiirill">
+            ©Polozenko Kirill
+          </a>
+        </p>
       </div>
     </div>
   );
