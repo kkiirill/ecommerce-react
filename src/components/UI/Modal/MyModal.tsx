@@ -6,11 +6,11 @@ export const MyModal: React.FC = memo(() => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const { width, height } = useWindowSize();
 
-  const closeModal = useCallback(() => {
+  const closeModal = () => {
     setShowModal(false);
-    window.location.reload();
+    window.open("https://kkiirill.github.io/ecommerce-react/#/");
     window.localStorage.clear();
-  }, []);
+  };
   return (
     <>
       <button

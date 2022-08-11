@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { getProducts } from "../../../api/api";
 import { Data } from "../../../types";
@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import "./Products.css";
 
-export const Products: React.FC = memo(() => {
+export const Products: React.FC = () => {
   const [products, setProducts] = useState<Data[]>([]);
   const [productsFilter, setProductsFilter] = useState<Data[]>([]);
   const [search, setSearch] = useLocalStorage<string>("search", "");
@@ -89,4 +89,4 @@ export const Products: React.FC = memo(() => {
     );
   };
   return <div>{loading ? loader() : productsContent()}</div>;
-});
+};
