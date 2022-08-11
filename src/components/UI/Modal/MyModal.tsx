@@ -8,8 +8,8 @@ export const MyModal: React.FC = memo(() => {
 
   const closeModal = useCallback(() => {
     setShowModal(false);
-    window.localStorage.clear();
     window.location.reload();
+    window.localStorage.clear();
   }, []);
   return (
     <>

@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { getProducts } from "../../../api/api";
 import { Data } from "../../../types";
@@ -29,9 +29,9 @@ export const Products: React.FC = memo(() => {
     fetchData();
   }, []);
 
-  const searchByProducts = useMemo(()=>[...productsFilter].filter((product) => {
+  const searchByProducts = [...productsFilter].filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
-  }),[productsFilter, search]);
+  });
 
   const loader = () => {
     return (
