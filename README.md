@@ -8,11 +8,12 @@ This Project made with\
 🎯 Typescript\
 🎯 React/Redux\
 🎯 React Router\
-🎯 Tailwind\
+🎯 Tailwind
 
 
-👦 Test for login:\ 
-username: test\
+👦 Test for login: 
+username: test
+
 password: 123456\
 
 
