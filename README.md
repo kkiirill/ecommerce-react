@@ -14,7 +14,7 @@ This Project made with\
 👦 Test for login: 
 username: test
 
-password: 123456\
+password: 123456
 
 
 
