@@ -4,16 +4,16 @@ Ecommerce-react
 
 [DEMO](https://kkiirill.github.io/ecommerce-react/)
 
-This Project made with 
-🎯 Typescript
-🎯 React/Redux
-🎯 React Router
-🎯 Tailwind
+This Project made with\
+🎯 Typescript\
+🎯 React/Redux\
+🎯 React Router\
+🎯 Tailwind\
 
 
-👦 Test for login: 
-username: test
-password: 123456
+👦 Test for login:\ 
+username: test\
+password: 123456\
 
 
 
