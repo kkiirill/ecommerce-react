@@ -162,8 +162,7 @@ export const ShoppingCart: React.FC = memo(() => {
                   <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                     <dt className="flex items-center text-sm text-gray-600">
                       <span>Shipping estimate</span>
-                      <a
-                        href="/"
+                      <span
                         className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500"
                       >
                         <span className="sr-only">
@@ -173,7 +172,7 @@ export const ShoppingCart: React.FC = memo(() => {
                           className="h-5 w-5"
                           aria-hidden="true"
                         />
-                      </a>
+                      </span>
                     </dt>
                     <dd className="text-sm font-medium text-gray-900">
                       ${delivery.toFixed(2)}
@@ -182,8 +181,7 @@ export const ShoppingCart: React.FC = memo(() => {
                   <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                     <div className="flex text-sm text-gray-600">
                       <span>Tax estimate</span>
-                      <a
-                        href="/"
+                      <span
                         className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500"
                       >
                         <span className="sr-only">
@@ -193,7 +191,7 @@ export const ShoppingCart: React.FC = memo(() => {
                           className="h-5 w-5"
                           aria-hidden="true"
                         />
-                      </a>
+                      </span>
                     </div>
                     <div className="text-sm font-medium text-gray-900">
                       ${orderTax.toFixed(2)}

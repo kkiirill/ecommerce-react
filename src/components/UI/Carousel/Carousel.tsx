@@ -49,7 +49,7 @@ export const Carousel: React.FC = memo(() => {
   const startSlider = () => {
     slideInterval = setInterval(() => {
       handleOnNextClick();
-    }, 20000);
+    }, 10000);
   };
 
   const pauseSlider = () => {

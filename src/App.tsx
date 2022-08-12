@@ -12,13 +12,10 @@ import { Wishlist } from "./pages/Wishlist/Wishlist";
 import { ScrollToTop } from "./functions/scroll/ScrollToTop";
 import { User } from "./types";
 
-const requestHeaders: HeadersInit = new Headers();
-requestHeaders.set("Content-Type", "application/json");
-
 function App() {
   const [user, setUser] = useLocalStorage<User | null>("user", null);
 
-  const addFacebookUser = (user: any) => {
+  const addFacebookUser = (user: User) => {
     if (user) {
       setUser(user);
     }
@@ -50,6 +47,7 @@ function App() {
           }
         />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <ScrollToTop />
       <Footer />

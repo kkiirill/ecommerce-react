@@ -10,10 +10,10 @@ interface Props {
 }
 export const Product: React.FC<Props> = memo(({ product }) => {
   const dispatch = useDispatch();
-  const addProduct = (product: Data) => {
+  const addProduct = useCallback((product: Data) => {
     dispatch(addCart(product));
     diffToast();
-  };
+  }, [dispatch]);
 
   const addProductToWishlist = useCallback((product: Data) => {
     dispatch(addWishlist(product));
@@ -21,7 +21,7 @@ export const Product: React.FC<Props> = memo(({ product }) => {
   }, [dispatch]);
 
   return (
-    <div className="w-64 bg-slate-50 bg-opacity-30 shadow-lg rounded-xl p-6 hover:shadow-2xl hover:scale-105 transition">
+    <div className="w-64 bg-slate-50 bg-opacity-30 shadow-lg rounded-xl p-6 hover:shadow-2xl">
       <div className="flex flex-col ">
         <div className="">
           <div className="relative h-62 w-full mb-3">

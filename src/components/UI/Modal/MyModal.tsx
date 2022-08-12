@@ -1,6 +1,7 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { memo,useState } from "react";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import Confetti from "react-confetti";
+import { Link } from "react-router-dom";
 
 export const MyModal: React.FC = memo(() => {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -8,9 +9,9 @@ export const MyModal: React.FC = memo(() => {
 
   const closeModal = () => {
     setShowModal(false);
-    window.open("https://kkiirill.github.io/ecommerce-react/#/");
     window.localStorage.clear();
   };
+
   return (
     <>
       <button
@@ -41,14 +42,14 @@ export const MyModal: React.FC = memo(() => {
                   </p>
                 </div>
                 <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
-                  <a
+                  <Link
                     className="text-blue-500 background-transparent font-bold uppercase px-6 py-2 text-xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:scale-105"
                     type="button"
                     onClick={closeModal}
-                    href="/"
+                    to="/"
                   >
                     Go to shoopppinggg
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

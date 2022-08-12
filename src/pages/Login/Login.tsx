@@ -1,4 +1,4 @@
-import { memo, useCallback } from "react";
+import { memo } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Facebook } from "../../components/Facebook/Facebook";
 import "./Login.css";
